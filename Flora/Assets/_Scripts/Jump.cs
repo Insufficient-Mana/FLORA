@@ -37,7 +37,7 @@ public class Jump : MonoBehaviour
     private void Update()
     {
         //begin jump
-        if (isOnGround && !isJumping && Input.GetKey(KeyCode.Space))
+        if (isOnGround && !isJumping && Input.GetKeyDown(KeyCode.Space))
         {
             StartJump();
         }
