@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class LRMovement : MonoBehaviour
 {
-
+    [SerializeField] float moveSpeed;
     Rigidbody2D myRigidbody2D;
 
     private void Awake()
@@ -27,7 +27,7 @@ public class LRMovement : MonoBehaviour
             moveDirection += 1;
         }
 
-        
+        myRigidbody2D.velocity = new Vector2(moveDirection * moveSpeed, myRigidbody2D.velocity.y);
     }
 
 }
