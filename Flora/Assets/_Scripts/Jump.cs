@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent (typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 
 public class Jump : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class Jump : MonoBehaviour
 
     float currentJumpHeight = 0;
 
+    Animator myAnimator;
+
     private void Awake()
     {
         if (!groundDetector.isTrigger)
@@ -28,6 +31,7 @@ public class Jump : MonoBehaviour
         }
 
         myRigidbody2D = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -62,6 +66,9 @@ public class Jump : MonoBehaviour
         {
             myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, -maxFallSpeed);
         }
+
+        myAnimator.SetBool("IsOnGround", isOnGround);
+        myAnimator.SetBool("IsJumping", isJumping);
     }
 
     private void StartJump()
