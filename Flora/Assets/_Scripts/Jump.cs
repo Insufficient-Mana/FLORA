@@ -11,6 +11,7 @@ public class Jump : MonoBehaviour
     [SerializeField] BoxCollider2D groundDetector;
     [SerializeField] float jumpStrength;
     [SerializeField] float maxJumpHeight;
+    [SerializeField] float maxFallSpeed;
 
     Rigidbody2D myRigidbody2D;
 
@@ -54,6 +55,12 @@ public class Jump : MonoBehaviour
         if (isJumping && currentJumpHeight >= maxJumpHeight)
         {
             EndJump();
+        }
+
+        //clamp fall speed
+        if (myRigidbody2D.velocity.y <= -maxFallSpeed)
+        {
+            myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, -maxFallSpeed);
         }
     }
 
