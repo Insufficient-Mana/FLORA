@@ -7,10 +7,16 @@ public class PlatformManager : MonoBehaviour
     public List<GameObject> Platforms;
     public List<GameObject> Seeds;
     // Start is called before the first frame update
-    void Start()
+
+    public void GrowAndDecay()
     {
+        
         GatherAllPlatforms();
         GatherAllSeeds();
+        DecayFlowers();
+        GrowSeeds();
+        Platforms = new List<GameObject>();
+        Seeds = new List<GameObject>();
     }
 
     public void GatherAllPlatforms()
@@ -39,7 +45,20 @@ public class PlatformManager : MonoBehaviour
     {
         foreach(GameObject platform in Platforms)
         {
+            PlatformDecay decayScript = platform.GetComponent<PlatformDecay>();
+            decayScript.DecreaseLifespan();
+        }
+    }
 
+    public void GrowSeeds()
+    {
+        foreach(GameObject seed in Seeds)
+        {
+            PlatformCreator creator = seed.GetComponent<PlatformCreator>();
+            if(creator.stemGrown == false)
+            {
+                creator.CreatePlatform();
+            }
         }
     }
 }
