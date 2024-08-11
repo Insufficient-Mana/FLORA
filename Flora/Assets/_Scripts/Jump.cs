@@ -86,7 +86,6 @@ public class Jump : MonoBehaviour
                 {
                     if (currentJumpHeight >= maxJumpHeight * 2)
                     {
-                        EndJump();
                         isBouncing = false;
                         Debug.Log("End Jump");
                     }
