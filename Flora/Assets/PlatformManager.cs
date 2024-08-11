@@ -47,6 +47,14 @@ public class PlatformManager : MonoBehaviour
         {
             PlatformDecay decayScript = platform.GetComponent<PlatformDecay>();
             decayScript.DecreaseLifespan();
+
+            FlowerType type = platform.GetComponent<FlowerType>();
+            if(type.type == FlowerType.FlowerTypes.Big)
+            {
+                BigFlower bigScript = platform.GetComponent<BigFlower>();
+                bigScript.calculateAndAddHeight();
+            }
+            
         }
     }
 

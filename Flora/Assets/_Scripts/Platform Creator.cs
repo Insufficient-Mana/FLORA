@@ -8,6 +8,7 @@ public class PlatformCreator : MonoBehaviour
     public float spawnUnits;
     public float growTime;
     public bool stemGrown;
+    public GameObject placedTile;
 
     private void Start()
     {
@@ -33,5 +34,13 @@ public class PlatformCreator : MonoBehaviour
     public void GrowStem()
     {
 
+    }
+
+    public void DeleteSeed()
+    {
+        Tile tile = placedTile.GetComponent<Tile>();
+        tile.occupied = false;
+        tile.sprite.color = new Color(0, 255, 0, 0f);
+        Destroy(gameObject);
     }
 }

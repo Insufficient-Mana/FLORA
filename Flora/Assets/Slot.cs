@@ -14,6 +14,9 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     public bool overSlot;
     public bool dragging;
     public Camera mainCamera;
+    public SlotManager slotManager;
+    public GameObject placedTile;
+    public int amount;
 
     
 
@@ -36,7 +39,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     {
         dragging = false;
         plantIcon.transform.position = plantIconPosition;
-        PlantSeed();
+        slotManager.currentSlot = GetComponent<Slot>();
 
     }
 
@@ -45,20 +48,21 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     {
         overSlot = false;
         plantIconPosition = new Vector2(plantIcon.transform.position.x,plantIcon.transform.position.y);
+        slotManager = gameObject.transform.parent.GetComponent<SlotManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(dragging == true)
-        {
-            plantIcon.transform.position = Input.mousePosition;
-        }
+        textBox.text = amount.ToString();
     }
 
     public void PlantSeed()
     {
+        amount -= 1;
         Vector3 worldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        Instantiate(seedType,new Vector3(worldPos.x,worldPos.y,0),Quaternion.identity);
+        PlatformCreator seedScript = seedType.GetComponent<PlatformCreator>();
+        seedScript.placedTile = placedTile;
+        Instantiate(seedType,new Vector3(placedTile.transform.position.x, placedTile.transform.position.y,0),Quaternion.identity);
     }
 }
