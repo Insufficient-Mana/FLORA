@@ -21,7 +21,7 @@ public class PlatformDecay : MonoBehaviour
             collider.enabled = false;
             FlowerType flowerType = GetComponent<FlowerType>();
 
-            if (flowerType.type != FlowerType.FlowerTypes.Established)
+            if (flowerType.type != FlowerType.FlowerTypes.Established && associatedSeed != null)
             {
                 PlatformCreator seedScript = associatedSeed.GetComponent<PlatformCreator>();
                 seedScript.DeleteSeed();

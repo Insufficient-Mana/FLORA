@@ -25,6 +25,7 @@ public class SpringFlowerSprite : MonoBehaviour
                 mush1.gameObject.SetActive(false);
                 break;
             case 1:
+                mush1.gameObject.SetActive(false);
                 mush2.gameObject.SetActive(false);
                 sprite.sprite = sprList[1];
                 mush3.sprite = sprList[2];
