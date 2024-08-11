@@ -55,6 +55,16 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     void Update()
     {
         textBox.text = amount.ToString();
+        Image image = GetComponent<Image>();
+        if (slotManager.currentSlot == gameObject.GetComponent<Slot>())
+        {
+            image.color = new Color(255, 185, 185);
+        }
+        else
+        {
+            
+            image.color = new Color(255, 255, 255);
+        }
     }
 
     public void PlantSeed()
