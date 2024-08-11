@@ -9,7 +9,6 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
 {
     public GameObject seedType;
     public Text textBox;
-    public GameObject plantIcon;
     public Vector2 plantIconPosition;
     public bool overSlot;
     public bool dragging;
@@ -37,7 +36,6 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     public void OnPointerUp(PointerEventData eventData)
     {
         dragging = false;
-        plantIcon.transform.position = plantIconPosition;
         slotManager.currentSlot = GetComponent<Slot>();
 
     }
@@ -46,7 +44,6 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     void Start()
     {
         overSlot = false;
-        plantIconPosition = new Vector2(plantIcon.transform.position.x,plantIcon.transform.position.y);
         slotManager = gameObject.transform.parent.GetComponent<SlotManager>();
     }
 
