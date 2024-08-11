@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1a15ae4c21aab4aa26c6cee78699e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformLifespan: 2
+  platformLifespan: 3
   associatedSeed: {fileID: 0}
 --- !u!114 &867183837317048660
 MonoBehaviour:
