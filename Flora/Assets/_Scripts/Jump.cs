@@ -107,10 +107,18 @@ public class Jump : MonoBehaviour
     public void EndJump()
     {
         isJumping = false;
+        isBouncing = false;
         myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 7)
+        {
+            isOnGround = true;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 7)
         {
