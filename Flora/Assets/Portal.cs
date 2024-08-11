@@ -18,6 +18,7 @@ public class Portal : MonoBehaviour
     public GameObject orbSprite1;
     public GameObject orbSprite2;
     public GameObject orbSprite3;
+    public GameObject crystal;
     public List<Sprite> TwoDayOrbs;
     public List<Sprite> ThreeDayOrbs;
     public List<Sprite> FourDayOrbs;
@@ -34,6 +35,7 @@ public class Portal : MonoBehaviour
         orbSprite1.SetActive(false);
         orbSprite2.SetActive(false);
         orbSprite3.SetActive(false);
+        crystal.SetActive(false);
         SpriteChanger();
     }
 
@@ -72,6 +74,7 @@ public class Portal : MonoBehaviour
             if(currentDay == 1)
             {
                 orbSprite1.SetActive(true);
+                crystal.SetActive(true);
             }
         }
         else if (maxDays == 3)
@@ -84,6 +87,7 @@ public class Portal : MonoBehaviour
             {
                 orbSprite1.SetActive(true);
                 orbSprite2.SetActive(true);
+                crystal.SetActive(true);
             }
         }
         else if (maxDays == 4)
@@ -102,6 +106,7 @@ public class Portal : MonoBehaviour
                 orbSprite1.SetActive(true);
                 orbSprite2.SetActive(true);
                 orbSprite3.SetActive(true);
+                crystal.SetActive(true);
             }
         }
     }
