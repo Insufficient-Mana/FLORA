@@ -86,7 +86,10 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
         RaycastHit2D hit = Physics2D.Raycast(transform.position+new Vector3(0,1,0), Vector2.up, plantheight-1);
         if(hit.collider != null)
         {
-            obstructed = true;
+            if(!hit.collider.gameObject.CompareTag("Thorns"))
+            {
+                obstructed = true;
+            }
         }
         else
         {
@@ -98,7 +101,7 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     {
         tileManager.slotManager.jump.canJump = false;
         tileManager.slotManager.movement.canMove = false;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(.5f);
         tileManager.slotManager.currentSlot.PlantSeed();
         occupied = true;
         sprite.color = new Color(255, 0, 0, 0.2f);

@@ -9,15 +9,24 @@ public class PlatformCreator : MonoBehaviour
     public float growTime;
     public bool stemGrown;
     public GameObject placedTile;
+    
+    
 
     private void Start()
     {
         stemGrown = false;
     }
 
-    public void CreatePlatform()
+    
+
+    public void ReduceGrowTime()
     {
         growTime -= 1;
+    }
+
+    public void CreatePlatform()
+    {
+        
         if(growTime == 0)
         {
             PlatformDecay decayScript = flowerType.GetComponent<PlatformDecay>();

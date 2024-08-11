@@ -9,6 +9,7 @@ TagManager:
   - FlowerManager
   - SlotManager
   - Portal
+  - Thorns
   layers:
   - Default
   - TransparentFX

@@ -19,8 +19,13 @@ public class PlatformDecay : MonoBehaviour
         {
             Collider2D collider = gameObject.GetComponent<Collider2D>();
             collider.enabled = false;
-            PlatformCreator seedScript = associatedSeed.GetComponent<PlatformCreator>();
-            seedScript.DeleteSeed();
+            FlowerType flowerType = GetComponent<FlowerType>();
+
+            if (flowerType.type != FlowerType.FlowerTypes.Established)
+            {
+                PlatformCreator seedScript = associatedSeed.GetComponent<PlatformCreator>();
+                seedScript.DeleteSeed();
+            }
             Destroy(gameObject);
         }
     }

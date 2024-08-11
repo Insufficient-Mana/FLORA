@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class FlowerType : MonoBehaviour
 {
-    public enum FlowerTypes{ Basic, Tall, Big, Spring, Moving };
+    public enum FlowerTypes{ Basic, Tall, Big, Spring, Moving, Established};
     public FlowerTypes type;
 }

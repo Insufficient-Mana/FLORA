@@ -20,6 +20,14 @@ public class Portal : MonoBehaviour
         canTeleport = true;
     }
 
+    private void Update()
+    {
+        if(currentDay == maxDays)
+        {
+
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player") && canTeleport)

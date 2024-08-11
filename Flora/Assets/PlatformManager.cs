@@ -63,10 +63,12 @@ public class PlatformManager : MonoBehaviour
         foreach(GameObject seed in Seeds)
         {
             PlatformCreator creator = seed.GetComponent<PlatformCreator>();
-            if(creator.stemGrown == false)
+            creator.ReduceGrowTime();
+            if (creator.stemGrown == false)
             {
                 creator.CreatePlatform();
             }
+            
         }
     }
 }
