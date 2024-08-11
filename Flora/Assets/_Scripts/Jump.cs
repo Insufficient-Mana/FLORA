@@ -18,6 +18,7 @@ public class Jump : MonoBehaviour
 
     bool isOnGround;
     bool isJumping;
+    public bool isBouncing;
 
     float currentJumpHeight = 0;
 
@@ -36,35 +37,56 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
-        //begin jump
-        if (isOnGround && !isJumping && Input.GetKeyDown(KeyCode.Space))
+        if (!isBouncing)
         {
-            StartJump();
-        }
+            //begin jump
+            if (isOnGround && !isJumping && Input.GetKeyDown(KeyCode.Space))
+            {
+                StartJump();
+            }
 
-        //do jump
-        if (isJumping && Input.GetKey(KeyCode.Space))
-        {
-            myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength);
-            currentJumpHeight += jumpStrength * Time.deltaTime;
-        }
+            //do jump
+            if (isJumping && Input.GetKey(KeyCode.Space))
+            {
+                myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength);
+                currentJumpHeight += jumpStrength * Time.deltaTime;
+            }
 
-        //end jump if key released
-        if (isJumping && !Input.GetKey(KeyCode.Space))
-        {
-            EndJump();
-        }
+            //end jump if key released
+            if (isJumping && !Input.GetKey(KeyCode.Space))
+            {
+                EndJump();
+            }
 
-        //end jump if max height is reached
-        if (isJumping && currentJumpHeight >= maxJumpHeight)
-        {
-            EndJump();
-        }
+            //end jump if max height is reached
+            if (isJumping && currentJumpHeight >= maxJumpHeight)
+            {
+                EndJump();
+            }
 
-        //clamp fall speed
-        if (myRigidbody2D.velocity.y <= -maxFallSpeed)
+            //clamp fall speed
+            if (myRigidbody2D.velocity.y <= -maxFallSpeed)
+            {
+                myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, -maxFallSpeed);
+            }
+        }
+        else
         {
-            myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, -maxFallSpeed);
+            currentJumpHeight += jumpStrength*2 * Time.deltaTime;
+            if (isOnGround)
+            {
+                currentJumpHeight = 0;
+                myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength*2);
+            }
+            else
+            {
+                if (currentJumpHeight >= maxJumpHeight*2)
+                {
+                    EndJump();
+                    isBouncing = false;
+                    Debug.Log("End Jump");
+                }
+            }
         }
 
         myAnimator.SetBool("IsOnGround", isOnGround);

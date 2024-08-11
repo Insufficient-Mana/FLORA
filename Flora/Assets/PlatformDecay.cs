@@ -19,7 +19,8 @@ public class PlatformDecay : MonoBehaviour
         {
             Collider2D collider = gameObject.GetComponent<Collider2D>();
             collider.enabled = false;
-            Destroy(associatedSeed);
+            PlatformCreator seedScript = associatedSeed.GetComponent<PlatformCreator>();
+            seedScript.DeleteSeed();
             Destroy(gameObject);
         }
     }
