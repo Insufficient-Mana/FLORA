@@ -4410,6 +4410,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8445061090380165916, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
+      propertyPath: growTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8445061090380165916, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
       propertyPath: placedTile
       value: 
       objectReference: {fileID: 1712479897}
