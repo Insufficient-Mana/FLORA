@@ -26,6 +26,16 @@ public class LRMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("cast"))
+        {
+            canMove = false;
+        }
+        else
+        {
+            canMove = true;
+        }
+
         if (canMove)
         {
             int moveDirection = 0;

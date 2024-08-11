@@ -10,14 +10,10 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     public TileManager tileManager;
     public SpriteRenderer sprite;
 
-    public float castTime;
-    public float currentTime;
-
     public bool occupied;
     public bool valid;
     public bool overTile;
     public bool obstructed;
-    public bool casting;
     public void OnPointerDown(PointerEventData eventData)
     {
 
@@ -61,7 +57,9 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
                 tileManager.slotManager.currentSlot.placedTile = gameObject;
                 if (tileManager.slotManager.currentSlot.amount > 0)
                 {
-                    casting = true;
+
+                    tileManager.BeginCasting();
+                    Invoke(nameof(Cast), .4f);
 
                 }
             }
@@ -74,8 +72,6 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
         manager = gameObject.transform.parent.gameObject;
         tileManager = manager.gameObject.AddComponent<TileManager>();
         occupied = false;
-        castTime = 2;
-        currentTime = 0;
         sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -83,20 +79,6 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     void Update()
     {
         
-        if (casting == true)
-        {
-            currentTime += Time.deltaTime;
-        }
-
-        if (currentTime >= castTime)
-        {
-            Cast();
-        }
-        else if(!tileManager.slotManager.jump.isOnGround || tileManager.slotManager.movement.moving)
-        {
-            casting = false;
-            currentTime = 0;
-        }
     }
 
     public void CheckObstructed()
@@ -124,7 +106,6 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
         sprite.color = new Color(255, 0, 0, 0.2f);
         tileManager.slotManager.jump.canJump = true;
         tileManager.slotManager.movement.canMove = true;
-        casting = false;
-        currentTime = 0;
+
     }
 }
