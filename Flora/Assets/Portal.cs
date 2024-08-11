@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Portal : MonoBehaviour
     public GameObject flowerManager;
     public GameObject player;
     public bool canTeleport;
+
+    public int currentLevel;
 
     private void Start()
     {
@@ -24,7 +27,12 @@ public class Portal : MonoBehaviour
     {
         if(currentDay == maxDays)
         {
-
+            //unlock next level
+            if (PlayerPrefs.GetInt("HighestLevelUnlocked") <= currentLevel)
+            {
+                PlayerPrefs.SetInt("HighestLevelUnlocked", currentLevel + 1);
+            }
+            SceneManager.LoadScene("Menu");
         }
     }
 
