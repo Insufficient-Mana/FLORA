@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 8609975217727237111}
   - component: {fileID: 258572007502863473}
   - component: {fileID: 4141103394000592788}
+  - component: {fileID: 105215426491147243}
   m_Layer: 7
   m_Name: Spring Flower
   m_TagString: Flower
@@ -366,6 +367,27 @@ MonoBehaviour:
   - {fileID: 128317155, guid: c7104cd58f7960c4da22f443f7688cd8, type: 3}
   - {fileID: -1241172119, guid: 5ac44bc7210997a4d81a0f4899fc77ab, type: 3}
   - {fileID: 21300000, guid: 761a442d96e7a2e42acbd56384479959, type: 3}
+--- !u!95 &105215426491147243
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134534688763649208}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 67f8c675a840a1942b7e267d5f41229a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7710836519984737538
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,6 +398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4352916452975092657}
   - component: {fileID: 3188116243082632941}
+  - component: {fileID: 1086273235786372362}
   m_Layer: 7
   m_Name: Mush 1
   m_TagString: Untagged
@@ -450,3 +473,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1086273235786372362
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7710836519984737538}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
