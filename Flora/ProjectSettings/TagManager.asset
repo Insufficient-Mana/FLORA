@@ -8,6 +8,7 @@ TagManager:
   - Seed
   - FlowerManager
   - SlotManager
+  - Portal
   layers:
   - Default
   - TransparentFX
