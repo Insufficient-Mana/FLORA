@@ -217,13 +217,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &6289958
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -332,7 +329,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -481,13 +478,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &108756552
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -821,13 +815,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &177517640
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -974,13 +965,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &178101433
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1112,13 +1100,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 1
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &224292881
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1849,13 +1834,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &734505049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2002,13 +1984,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &767276894
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2071,7 +2050,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2136,7 +2115,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2429,13 +2408,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &921215282
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2661,13 +2637,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &947111147
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3073,13 +3046,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &994954061
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3421,13 +3391,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &1201273818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3490,7 +3457,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3707,13 +3674,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &1250337380
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3860,13 +3824,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &1274793576
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4107,7 +4068,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.421875
+  orthographic size: 4.21875
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4232,13 +4193,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &1348999411
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4395,13 +4353,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &1401087845
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4530,7 +4485,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4679,13 +4634,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &1539578008
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9062,13 +9014,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &1697060087
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9451,13 +9400,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &1857627707
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9619,7 +9565,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6871074128994167438, guid: cfc1c846604454143a136eb93a38fb18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9870,13 +9816,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &1958566960
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10023,13 +9966,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &2024455291
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10176,13 +10116,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &2039459101
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14444,13 +14381,10 @@ MonoBehaviour:
   manager: {fileID: 0}
   tileManager: {fileID: 0}
   sprite: {fileID: 0}
-  castTime: 0
-  currentTime: 0
   occupied: 0
   valid: 0
   overTile: 0
   obstructed: 0
-  casting: 0
 --- !u!212 &2065976686
 SpriteRenderer:
   m_ObjectHideFlags: 0
