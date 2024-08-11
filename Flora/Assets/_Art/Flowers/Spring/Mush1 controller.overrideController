@@ -8,4 +8,8 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Mush1 controller
   m_Controller: {fileID: 9100000, guid: 67f8c675a840a1942b7e267d5f41229a, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 0e55335d476c03b489687502efb24f50, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9c150cb812f270348b88c1e7036862b2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 981b4ebea6d491945b74cea14ba5ee62, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 265e564cf8aaee445b059ef1e35f22db, type: 2}
