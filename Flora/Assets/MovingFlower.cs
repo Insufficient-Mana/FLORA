@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Cinemachine.CinemachineTargetGroup;
 using static UnityEngine.GraphicsBuffer;
 
 public class MovingFlower : MonoBehaviour
@@ -10,24 +11,31 @@ public class MovingFlower : MonoBehaviour
     public Vector2 leftPoint;
     public bool movingRight;
     public float moveSpeed;
+    public GameObject player;
+    public Vector3 offset;
     private void Start()
     {
         spawnPoint = transform.position;
         rightPoint = spawnPoint + new Vector2(1, 0);
-        leftPoint = spawnPoint + new Vector2(-1,0);
+        leftPoint = spawnPoint + new Vector2(-1, 0);
     }
     private void Update()
     {
-        if(movingRight)
+        if (movingRight)
         {
             transform.position = Vector2.MoveTowards(transform.position, rightPoint, moveSpeed * Time.deltaTime);
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, leftPoint, moveSpeed*Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, leftPoint, moveSpeed * Time.deltaTime);
         }
 
         CheckDirectionReached();
+
+        if(player != null)
+        {
+            player.transform.position = transform.position + offset;
+        }
     }
 
     public void CheckDirectionReached()
@@ -44,4 +52,19 @@ public class MovingFlower : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            player = collision.gameObject;
+            offset = player.transform.position - transform.position;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        player = null;
+    }
+
 }
