@@ -26,7 +26,13 @@ public class PlatformDecay : MonoBehaviour
                 PlatformCreator seedScript = associatedSeed.GetComponent<PlatformCreator>();
                 seedScript.DeleteSeed();
             }
-            Destroy(gameObject);
+
+            if(flowerType.type == FlowerType.FlowerTypes.Established)
+            {
+                DefaultFlower defaultFlower = gameObject.GetComponent<DefaultFlower>();
+                defaultFlower.placedTile.occupied = false;
+            }
+                Destroy(gameObject);
         }
     }
 }

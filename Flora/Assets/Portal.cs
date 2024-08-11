@@ -134,6 +134,7 @@ public class Portal : MonoBehaviour
             manager.GrowAndDecay();
             currentDay += 1;
             ChangeOrb();
+            
         }
     }
 
