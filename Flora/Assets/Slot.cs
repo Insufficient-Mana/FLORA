@@ -66,7 +66,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
             image.color = new Color(255, 255, 255);
         }
     }
-
+     
     public void PlantSeed()
     {
         amount -= 1;

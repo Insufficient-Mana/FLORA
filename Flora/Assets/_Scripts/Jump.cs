@@ -104,7 +104,7 @@ public class Jump : MonoBehaviour
         currentJumpHeight = 0;
     }
 
-    private void EndJump()
+    public void EndJump()
     {
         isJumping = false;
         myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, 0);
