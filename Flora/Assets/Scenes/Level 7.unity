@@ -708,75 +708,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &163767013
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3844765346811508888, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.459
-      objectReference: {fileID: 0}
-    - target: {fileID: 3844765346811508888, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.602
-      objectReference: {fileID: 0}
-    - target: {fileID: 3844765346811508888, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3844765346811508888, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3844765346811508888, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3844765346811508888, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3844765346811508888, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3844765346811508888, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3844765346811508888, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3844765346811508888, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8445061090380165916, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: growTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8445061090380165916, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: flowerType
-      value: 
-      objectReference: {fileID: 2011612243}
-    - target: {fileID: 8445061090380165916, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: placedTile
-      value: 
-      objectReference: {fileID: 1753893127}
-    - target: {fileID: 9051578009468109608, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-      propertyPath: m_Name
-      value: Spring Flower Seed
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
 --- !u!1 &179754796
 GameObject:
   m_ObjectHideFlags: 0
@@ -3358,7 +3289,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seedType: {fileID: 4914703755539571862, guid: c81afe286aec8784e8e20176b3d5d5a5, type: 3}
   textBox: {fileID: 1664317506}
-  plantIcon: {fileID: 1840920139}
   plantIconPosition: {x: 0, y: 0}
   overSlot: 0
   dragging: 0
@@ -3403,11 +3333,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680828407}
   m_CullTransparentMesh: 1
---- !u!1 &690677582 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9051578009468109608, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
-  m_PrefabInstance: {fileID: 163767013}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &768874267
 GameObject:
   m_ObjectHideFlags: 0
@@ -7019,7 +6944,7 @@ PrefabInstance:
     - target: {fileID: 5545963161215565090, guid: ff281342d6be04e4aa9a733881f9ae8d, type: 3}
       propertyPath: associatedSeed
       value: 
-      objectReference: {fileID: 690677582}
+      objectReference: {fileID: 0}
     - target: {fileID: 6134534688763649208, guid: ff281342d6be04e4aa9a733881f9ae8d, type: 3}
       propertyPath: m_Name
       value: Spring Flower
@@ -11137,11 +11062,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &2011612243 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6134534688763649208, guid: ff281342d6be04e4aa9a733881f9ae8d, type: 3}
-  m_PrefabInstance: {fileID: 1898019152}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2099810605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14184,7 +14104,6 @@ SceneRoots:
   - {fileID: 1560313806}
   - {fileID: 1702569221}
   - {fileID: 1898019152}
-  - {fileID: 163767013}
   - {fileID: 892716816}
   - {fileID: 472907661}
   - {fileID: 1255308692}
