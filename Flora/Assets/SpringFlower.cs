@@ -12,15 +12,15 @@ public class SpringFlower : MonoBehaviour
         myAnimatorList = GetComponentsInChildren<Animator>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player")&&!bounced)
+        if (collision.gameObject.CompareTag("Player") && !bounced)
         {
             bounced = true;
             Jump playerJump = collision.gameObject.GetComponent<Jump>();
             playerJump.isBouncing = true;
-            
-            foreach(Animator anim in myAnimatorList)
+
+            foreach (Animator anim in myAnimatorList)
             {
                 anim.Play("bounce");
             }
@@ -29,7 +29,7 @@ public class SpringFlower : MonoBehaviour
 
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
