@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 371281046178336122}
   - component: {fileID: 6723388867759791308}
+  - component: {fileID: 4224171746529477165}
   m_Layer: 0
   m_Name: Basic Tall Flower Seed
   m_TagString: Seed
@@ -49,3 +50,15 @@ MonoBehaviour:
   growTime: 2
   stemGrown: 0
   placedTile: {fileID: 0}
+--- !u!114 &4224171746529477165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7955829358060342340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701f5e4a93df90743a71f864eb784efa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
