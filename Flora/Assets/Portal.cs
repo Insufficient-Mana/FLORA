@@ -26,6 +26,8 @@ public class Portal : MonoBehaviour
 
     public int currentLevel;
 
+    public Animator transitionAnimator;
+
     private void Start()
     {
         flowerManager = GameObject.FindGameObjectWithTag("FlowerManager");
@@ -37,6 +39,8 @@ public class Portal : MonoBehaviour
         orbSprite3.SetActive(false);
         crystal.SetActive(false);
         SpriteChanger();
+
+        transitionAnimator = GameObject.FindGameObjectWithTag("DayNightTransition").GetComponent<Animator>();
     }
 
     public void SpriteChanger()
@@ -113,28 +117,33 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
-        if(currentDay == maxDays)
-        {
-            //unlock next level
-            if (PlayerPrefs.GetInt("HighestLevelUnlocked") <= currentLevel)
-            {
-                PlayerPrefs.SetInt("HighestLevelUnlocked", currentLevel + 1);
-            }
-            SceneManager.LoadScene("Menu");
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player") && canTeleport)
         {
-            canTeleport = false;
-            player.transform.position = spawnPoint;
-            PlatformManager manager = flowerManager.GetComponent<PlatformManager>();
-            manager.GrowAndDecay();
             currentDay += 1;
-            ChangeOrb();
-            
+            if (currentDay == maxDays)
+            {
+                //unlock next level
+                if (PlayerPrefs.GetInt("HighestLevelUnlocked") <= currentLevel)
+                {
+                    PlayerPrefs.SetInt("HighestLevelUnlocked", currentLevel + 1);
+                }
+                SceneManager.LoadScene("Menu");
+            }
+            else
+            {
+                transitionAnimator.Play("begin");
+                canTeleport = false;
+                player.transform.position = spawnPoint;
+                PlatformManager manager = flowerManager.GetComponent<PlatformManager>();
+                manager.GrowAndDecay();
+
+                ChangeOrb();
+            }
         }
     }
 
