@@ -328,9 +328,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSlot: {fileID: 0}
-  player: {fileID: 0}
-  movement: {fileID: 0}
-  jump: {fileID: 0}
+  player: {fileID: 999974487}
+  movement: {fileID: 999974491}
+  jump: {fileID: 999974490}
 --- !u!114 &157208263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4990,6 +4990,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &999974487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5179424296755696834, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
+  m_PrefabInstance: {fileID: 329376839}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &999974490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7368313687103185306, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
+  m_PrefabInstance: {fileID: 329376839}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999974487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8710a7c336bb9469288e4a814d4cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &999974491 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3109841252285842178, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
+  m_PrefabInstance: {fileID: 329376839}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999974487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bccc121546a65438a653222e39ca99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1038525854
 GameObject:
   m_ObjectHideFlags: 0

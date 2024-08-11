@@ -68,8 +68,8 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         manager = gameObject.transform.parent.gameObject;
         tileManager = manager.gameObject.AddComponent<TileManager>();
@@ -82,6 +82,7 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     // Update is called once per frame
     void Update()
     {
+        
         if (casting == true)
         {
             currentTime += Time.deltaTime;
