@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class TallFlowerSprite : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlatformDecay creator;
+    public SpriteRenderer sprite;
+    public List<Sprite> sprList;
 
     // Update is called once per frame
     void Update()
     {
-        
+        spriteChanger();
+    }
+
+    public void spriteChanger()
+    {
+        switch (creator.platformLifespan)
+        {
+            case 2:
+                sprite.sprite = sprList[0];
+                break;
+            case 1:
+                sprite.sprite = sprList[1];
+                break;
+        }
     }
 }
