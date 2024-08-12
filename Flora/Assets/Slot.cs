@@ -15,6 +15,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     public SlotManager slotManager;
     public GameObject placedTile;
     public int amount;
+    public bool highlighted;
 
     
 
@@ -36,6 +37,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     public void OnPointerUp(PointerEventData eventData)
     {
         dragging = false;
+        highlighted = true;
         slotManager.currentSlot = GetComponent<Slot>();
 
     }
@@ -54,13 +56,17 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
         Image image = GetComponent<Image>();
         if (slotManager.currentSlot == gameObject.GetComponent<Slot>())
         {
-            image.color = new Color(255, 185, 185);
+            if (highlighted)
+            {
+                image.color = new Color(255, 0, 0);
+                highlighted = false;
+            }
         }
         else
         {
-            
             image.color = new Color(255, 255, 255);
         }
+        
     }
      
     public void PlantSeed()
