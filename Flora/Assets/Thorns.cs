@@ -7,6 +7,7 @@ public class Thorns : MonoBehaviour
 
     public GameObject portal;
     public Portal portalScript;
+    public AudioSource die;
     private void Start()
     {
         portal = GameObject.FindGameObjectWithTag("Portal");
@@ -18,6 +19,7 @@ public class Thorns : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.transform.position = portalScript.spawnPoint;
+            die.Play();
         }
     }
 }

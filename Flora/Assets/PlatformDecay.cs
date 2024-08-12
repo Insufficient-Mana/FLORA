@@ -27,10 +27,13 @@ public class PlatformDecay : MonoBehaviour
                 seedScript.DeleteSeed();
             }
 
-            if(flowerType.type == FlowerType.FlowerTypes.Established)
+            if (flowerType.type == FlowerType.FlowerTypes.Established)
             {
                 DefaultFlower defaultFlower = gameObject.GetComponent<DefaultFlower>();
-                defaultFlower.placedTile.occupied = false;
+                if (defaultFlower.placedTile != null)
+                {
+                    defaultFlower.placedTile.occupied = false;
+                }
             }
                 Destroy(gameObject);
         }

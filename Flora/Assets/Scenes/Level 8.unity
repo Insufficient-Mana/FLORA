@@ -681,6 +681,7 @@ MonoBehaviour:
   slotManager: {fileID: 0}
   placedTile: {fileID: 0}
   amount: 1
+  highlighted: 0
 --- !u!114 &156091905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +1372,7 @@ MonoBehaviour:
   slotManager: {fileID: 0}
   placedTile: {fileID: 0}
   amount: 1
+  highlighted: 0
 --- !u!114 &373408627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9262,6 +9264,7 @@ MonoBehaviour:
   slotManager: {fileID: 0}
   placedTile: {fileID: 0}
   amount: 1
+  highlighted: 0
 --- !u!114 &1859089176
 MonoBehaviour:
   m_ObjectHideFlags: 0
