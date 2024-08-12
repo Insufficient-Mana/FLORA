@@ -22,6 +22,7 @@ public class Jump : MonoBehaviour
     public bool canJump;
 
     public AudioSource jumpSound;
+    public AudioSource landSound;
 
     float currentJumpHeight = 0;
 
@@ -118,6 +119,7 @@ public class Jump : MonoBehaviour
         if (collision.gameObject.layer == 7)
         {
             isOnGround = true;
+            landSound.Play();
         }
     }
     private void OnTriggerStay2D(Collider2D collision)

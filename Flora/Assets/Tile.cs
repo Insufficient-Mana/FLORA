@@ -14,6 +14,7 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     public bool valid;
     public bool overTile;
     public bool obstructed;
+
     public void OnPointerDown(PointerEventData eventData)
     {
 
