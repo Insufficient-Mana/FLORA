@@ -27,6 +27,7 @@ public class Portal : MonoBehaviour
     public int currentLevel;
 
     public Animator transitionAnimator;
+    public AudioSource win;
 
     private void Start()
     {
@@ -136,6 +137,7 @@ public class Portal : MonoBehaviour
             }
             else
             {
+                win.Play();
                 transitionAnimator.Play("begin");
                 canTeleport = false;
                 player.transform.position = spawnPoint;
