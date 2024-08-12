@@ -21,7 +21,7 @@ public class DefaultFlower : MonoBehaviour
 
     public void CheckTileBelow()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 1, 0), Vector2.down, 2,~Ignore);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 1, 0), Vector2.down, 4,~Ignore);
 
         if(hit.collider != null)
         {
