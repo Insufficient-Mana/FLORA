@@ -21,6 +21,8 @@ public class Jump : MonoBehaviour
     public bool isBouncing;
     public bool canJump;
 
+    public AudioSource jumpSound;
+
     float currentJumpHeight = 0;
 
     Animator myAnimator;
