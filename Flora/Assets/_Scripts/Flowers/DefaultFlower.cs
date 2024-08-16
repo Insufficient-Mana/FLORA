@@ -13,12 +13,6 @@ public class DefaultFlower : MonoBehaviour
         CheckTileBelow();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void CheckTileBelow()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position - new Vector3(0, 1, 0), Vector2.down, 4,~Ignore);

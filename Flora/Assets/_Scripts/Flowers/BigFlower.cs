@@ -15,7 +15,6 @@ public class BigFlower : MonoBehaviour
 
     public void calculateAndAddHeight()
     {
-        PlatformCreator seedScript = decayScript.associatedSeed.GetComponent<PlatformCreator>();
         platformHeight = 1;
         gameObject.transform.position = decayScript.gameObject.transform.position + new Vector3(0, platformHeight, 0);
 

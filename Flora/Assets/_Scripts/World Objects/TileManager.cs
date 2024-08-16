@@ -8,17 +8,14 @@ public class TileManager : MonoBehaviour
     public List<GameObject> tiles;
     public GameObject slotManagerObject;
     public SlotManager slotManager;
-
-    Animator playerAnimator;
+    public Casting playerCasting;
 
     private void Start()
     {
         tiles = GetChildren(gameObject.transform);
         slotManagerObject = GameObject.FindGameObjectWithTag("SlotManager");
         slotManager = slotManagerObject.GetComponent<SlotManager>();
-
-        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
-
+        playerCasting = GameObject.FindGameObjectWithTag("Player").GetComponent<Casting>();
     }
 
     List<GameObject> GetChildren(Transform parent)
@@ -31,24 +28,4 @@ public class TileManager : MonoBehaviour
         }
         return children;
     }
-
-    public void BeginCasting()
-    {
-        playerAnimator.Play("cast");
-        
-    }
-
-    private void Update()
-    {
-        //channeling state check
-        if (slotManager.currentSlot != null)
-        {
-            playerAnimator.SetBool("isChanneling", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("isChanneling", false);
-        }
-    }
-
 }

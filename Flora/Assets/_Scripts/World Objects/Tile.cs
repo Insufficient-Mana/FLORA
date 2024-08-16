@@ -4,21 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerExitHandler, IPointerUpHandler
+public class Tile : MonoBehaviour, IPointerEnterHandler,IPointerDownHandler, IPointerExitHandler, IPointerUpHandler
 {
-    public GameObject manager;
     public TileManager tileManager;
     public SpriteRenderer sprite;
 
     public bool occupied;
-    public bool valid;
     public bool overTile;
     public bool obstructed;
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
+    public Color red = new Color(255, 0, 0, 0.2f);
+    public Color green = new Color(0, 255, 0, 0.2f);
 
-    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -29,15 +26,15 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
         }
         if (occupied)
         {
-            sprite.color = new Color(255, 0, 0, 0.2f);
+            sprite.color = red;
         }
         else if (!occupied && obstructed)
         {
-            sprite.color = new Color(255, 0, 0, 0.2f);
+            sprite.color = red;
         }
         else if (!occupied && !obstructed)
         {
-            sprite.color = new Color(0, 255, 0, 0.2f);
+            sprite.color = green;
         }
         overTile = true;
     }
@@ -47,39 +44,32 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
         tileManager.currentTile = null;
         sprite.color = new Color(1, 1, 1, 0);
         overTile = false;
+ 
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        Debug.Log("Cast");
         if (!occupied && overTile && !obstructed)
         {
             if (tileManager.slotManager.currentSlot != null)
             {
                 tileManager.slotManager.currentSlot.placedTile = gameObject;
+                
                 if (tileManager.slotManager.currentSlot.amount > 0)
                 {
-
-                    tileManager.BeginCasting();
-                    Invoke(nameof(Cast), .4f);
-
+                    tileManager.playerCasting.BeginCasting();
+                    tileManager.playerCasting.InvokeCast();
                 }
             }
         }
     }
 
-
     private void Awake()
     {
-        manager = gameObject.transform.parent.gameObject;
-        tileManager = manager.gameObject.AddComponent<TileManager>();
+        tileManager = gameObject.transform.parent.gameObject.GetComponent<TileManager>();
         occupied = false;
         sprite = GetComponent<SpriteRenderer>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void CheckObstructed()
@@ -100,13 +90,8 @@ public class Tile : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
         }
     }
 
-    public void Cast()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        tileManager.slotManager.currentSlot.PlantSeed();
-        occupied = true;
-        sprite.color = new Color(255, 0, 0, 0.2f);
-        tileManager.slotManager.jump.canJump = true;
-        tileManager.slotManager.movement.canMove = true;
-
+        
     }
 }
