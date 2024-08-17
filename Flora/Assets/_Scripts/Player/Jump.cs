@@ -87,11 +87,7 @@ public class Jump : MonoBehaviour
                 }
                 else
                 {
-                    if (currentJumpHeight >= maxJumpHeight * 2)
-                    {
-                        isBouncing = false;
-                        Debug.Log("End Jump");
-                    }
+                    isBouncing = false;
                 }
             }
 

@@ -24,6 +24,10 @@ public class Tile : MonoBehaviour, IPointerEnterHandler,IPointerDownHandler, IPo
         {
             CheckObstructed();
         }
+        else
+        {
+            obstructed = false;
+        }
         if (occupied)
         {
             sprite.color = red;
@@ -58,6 +62,7 @@ public class Tile : MonoBehaviour, IPointerEnterHandler,IPointerDownHandler, IPo
                 
                 if (tileManager.slotManager.currentSlot.amount > 0)
                 {
+                    tileManager.playerCasting.clickedTile = tileManager.currentTile;
                     tileManager.playerCasting.BeginCasting();
                     tileManager.playerCasting.InvokeCast();
                 }
@@ -67,7 +72,6 @@ public class Tile : MonoBehaviour, IPointerEnterHandler,IPointerDownHandler, IPo
 
     private void Awake()
     {
-        tileManager = gameObject.transform.parent.gameObject.GetComponent<TileManager>();
         occupied = false;
         sprite = GetComponent<SpriteRenderer>();
     }

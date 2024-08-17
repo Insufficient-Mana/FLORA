@@ -12,6 +12,7 @@ TagManager:
   - Thorns
   - Tile
   - DayNightTransition
+  - TileManager
   layers:
   - Default
   - TransparentFX

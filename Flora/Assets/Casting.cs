@@ -7,20 +7,26 @@ public class Casting : MonoBehaviour
     [SerializeField] private TileManager tileManager;
     [SerializeField] private SlotManager slotManager;
     [SerializeField] private Animator playerAnimator;
+    public GameObject clickedTile;
+    public bool channel;
+    public AudioSource channeling;
+    public AudioSource cast;
     // Start is called before the first frame update
     void Start()
     {
         tileManager = GameObject.FindGameObjectWithTag("TileManager").GetComponent<TileManager>();
         slotManager = GameObject.FindGameObjectWithTag("SlotManager").GetComponent<SlotManager>();
         playerAnimator = GetComponent<Animator>();
+        channel = false;
     }
 
     private void Update()
     {
         //channeling state check
-        if (slotManager.currentSlot != null)
+        if(slotManager.currentSlot != null)
         {
             playerAnimator.SetBool("isChanneling", true);
+            
         }
         else
         {
@@ -28,19 +34,32 @@ public class Casting : MonoBehaviour
         }
     }
 
+    public void Channel()
+    {
+        channeling.Play();
+    }
+
     public void BeginCasting()
     {
         playerAnimator.Play("cast");
+        cast.Play();
     }
     public void InvokeCast()
     {
         Invoke(nameof(Cast), .4f);
     }
-    public void Cast()
+    private void Cast()
     {
         slotManager.currentSlot.PlantSeed();
-        Tile currentTile = tileManager.currentTile.GetComponent<Tile>();
+        Tile currentTile = clickedTile.GetComponent<Tile>();
         currentTile.occupied = true;
-        currentTile.sprite.color = currentTile.red;
+        if (tileManager.currentTile != null)
+        {
+            if (currentTile == tileManager.currentTile.GetComponent<Tile>())
+            {
+                currentTile.sprite.color = currentTile.red;
+            }
+        }
+        clickedTile = null;
     }
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DefaultFlower : MonoBehaviour
 {
-
     public LayerMask Ignore;
     public Tile placedTile;
     // Start is called before the first frame update

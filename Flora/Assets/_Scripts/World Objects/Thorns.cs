@@ -18,6 +18,7 @@ public class Thorns : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("die");
             collision.gameObject.transform.position = portalScript.spawnPoint;
             die.Play();
         }
