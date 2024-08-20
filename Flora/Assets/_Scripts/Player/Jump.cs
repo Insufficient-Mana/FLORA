@@ -28,6 +28,8 @@ public class Jump : MonoBehaviour
 
     Animator myAnimator;
 
+    PlayerControls playerControls;
+
     private void Awake()
     {
         if (!groundDetector.isTrigger)
@@ -38,29 +40,42 @@ public class Jump : MonoBehaviour
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         canJump = true;
+
+        playerControls = new PlayerControls();
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
     }
 
     private void Update()
     {
+
         if (canJump)
         {
             if (!isBouncing)
             {
                 //begin jump
-                if (isOnGround && !isJumping && Input.GetKeyDown(KeyCode.Space))
+                if (isOnGround && !isJumping &&  playerControls.Gameplay.Jump.triggered)
                 {
                     StartJump();
                 }
 
                 //do jump
-                if (isJumping && Input.GetKey(KeyCode.Space))
+                if (isJumping && playerControls.Gameplay.Jump.ReadValue<float>() == 1)
                 {
                     myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength);
                     currentJumpHeight += jumpStrength * Time.deltaTime;
                 }
 
                 //end jump if key released
-                if (isJumping && !Input.GetKey(KeyCode.Space))
+                if (isJumping && playerControls.Gameplay.Jump.ReadValue<float>() != 1)
                 {
                     EndJump();
                 }
@@ -83,6 +98,7 @@ public class Jump : MonoBehaviour
                 if (isOnGround)
                 {
                     currentJumpHeight = 0;
+                    //does anyone know what this 2.1f value is
                     myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength * 2.1f);
                 }
                 else

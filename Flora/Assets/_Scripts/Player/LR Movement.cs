@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -14,6 +15,8 @@ public class LRMovement : MonoBehaviour
     public bool moving;
     public bool canMove;
 
+    PlayerControls playerControls;
+
 
     private void Awake()
     {
@@ -21,6 +24,23 @@ public class LRMovement : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAnimator = GetComponent<Animator>();
         canMove = true;
+
+        playerControls = new PlayerControls();
+    }
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
+
+    private void Start()
+    {
+        
     }
 
     // Update is called once per frame
@@ -36,20 +56,15 @@ public class LRMovement : MonoBehaviour
             canMove = true;
         }
 
+        
+
         if (canMove)
         {
-            int moveDirection = 0;
+            //move player based on LR input
+            float moveDirection = playerControls.Gameplay.Move.ReadValue<float>();
+            myRigidbody2D.velocity = new Vector2(moveDirection * moveSpeed, myRigidbody2D.velocity.y);
 
-            if (Input.GetKey(KeyCode.A))
-            {
-                moveDirection -= 1;
-            }
-
-            if (Input.GetKey(KeyCode.D))
-            {
-                moveDirection += 1;
-            }
-
+            //this is used for the public bool that is read by other scripts
             if (moveDirection == 0)
             {
                 moving = false;
@@ -59,7 +74,6 @@ public class LRMovement : MonoBehaviour
                 moving = true;
             }
 
-            myRigidbody2D.velocity = new Vector2(moveDirection * moveSpeed, myRigidbody2D.velocity.y);
 
 
 
@@ -74,11 +88,8 @@ public class LRMovement : MonoBehaviour
                 mySpriteRenderer.flipX = true;
             }
 
-
-
-
-
-            myAnimator.SetInteger("MoveDirection", moveDirection);
+            //this is used to tell the animator if the player is moving
+            myAnimator.SetInteger("MoveDirection", (int)moveDirection);
         }
         
     }
