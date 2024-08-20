@@ -658,15 +658,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6835db19eebcb4247916f939dc270442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotManager: {fileID: 0}
   seedType: {fileID: 7955829358060342340, guid: 93db9482f6354e247bcaa3e2ea9cd80e, type: 3}
+  placedTile: {fileID: 0}
   textBox: {fileID: 1892921407}
   plantIconPosition: {x: 0, y: 0}
-  overSlot: 0
-  dragging: 0
-  slotManager: {fileID: 0}
-  placedTile: {fileID: 0}
   amount: 0
   highlighted: 0
+  overSlot: 0
+  dragging: 0
 --- !u!114 &430751366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11798,15 +11798,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6835db19eebcb4247916f939dc270442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotManager: {fileID: 0}
   seedType: {fileID: 9051578009468109608, guid: ece41e3cefd46f24dac86900da0802a1, type: 3}
+  placedTile: {fileID: 0}
   textBox: {fileID: 1545957389}
   plantIconPosition: {x: 0, y: 0}
-  overSlot: 0
-  dragging: 0
-  slotManager: {fileID: 0}
-  placedTile: {fileID: 0}
   amount: 0
   highlighted: 0
+  overSlot: 0
+  dragging: 0
 --- !u!114 &857913781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12077,15 +12077,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6835db19eebcb4247916f939dc270442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotManager: {fileID: 0}
   seedType: {fileID: 4914703755539571862, guid: c81afe286aec8784e8e20176b3d5d5a5, type: 3}
+  placedTile: {fileID: 0}
   textBox: {fileID: 1853759639}
   plantIconPosition: {x: 0, y: 0}
-  overSlot: 0
-  dragging: 0
-  slotManager: {fileID: 0}
-  placedTile: {fileID: 0}
   amount: 1
   highlighted: 0
+  overSlot: 0
+  dragging: 0
 --- !u!114 &1211628484
 MonoBehaviour:
   m_ObjectHideFlags: 0

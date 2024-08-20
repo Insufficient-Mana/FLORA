@@ -6,15 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
+    [Header("Day Information")]
     public int maxDays;
     public int currentDay;
+
+    [Header("Game Information")]
     public Vector3 spawnPoint;
     public GameObject flowerManager;
     public GameObject player;
+    
+    [Header("Altar Sprites")]
     public List<Sprite> altars;
-    public bool canTeleport;
-
     public SpriteRenderer altarSprite;
+
+    [Header("Orb Information")]
     public GameObject orbSprite1;
     public GameObject orbSprite2;
     public GameObject orbSprite3;
@@ -23,29 +28,45 @@ public class Portal : MonoBehaviour
     public List<Sprite> ThreeDayOrbs;
     public List<Sprite> FourDayOrbs;
 
-
+    [Header("Altar Information")]
+    public bool canTeleport;
     public int currentLevel;
 
+    [Header("Animation/Sounds")]
     public Animator transitionAnimator;
     public AudioSource win;
 
+    #region Start
     private void Start()
     {
+        //Gets the player and flower manager
         flowerManager = GameObject.FindGameObjectWithTag("FlowerManager");
         player = GameObject.FindGameObjectWithTag("Player");
+
+        //Gets the player's initial spawn point and allows the player to teleport
         spawnPoint = new Vector3(player.transform.position.x,player.transform.position.y,0);
         canTeleport = true;
+
+        //Sets all the orbs to false automatically
         orbSprite1.SetActive(false);
         orbSprite2.SetActive(false);
         orbSprite3.SetActive(false);
         crystal.SetActive(false);
+
+        //Changes the sprites accordingly
         SpriteChanger();
 
+        //Gets the day night transition to perform a play from this script
         transitionAnimator = GameObject.FindGameObjectWithTag("DayNightTransition").GetComponent<Animator>();
     }
-
+    #endregion
+    #region Programatically Change Sprites
+    /// <summary>
+    /// Chenges the altar and the orb sprites according to how many days long the level is
+    /// </summary>
     public void SpriteChanger()
     {
+        //There is a seperate array for each of the orb amounts so they need to each be placed programmatically
         if(maxDays == 2)
         {
             altarSprite.sprite = altars[0];
@@ -72,6 +93,9 @@ public class Portal : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the orbs to active depending on the day
+    /// </summary>
     public void ChangeOrb()
     {
         if (maxDays == 2)
@@ -115,16 +139,14 @@ public class Portal : MonoBehaviour
             }
         }
     }
-
-    private void Update()
-    {
-        
-    }
-
+    #endregion
+    #region Trigger Events
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Checks if the collision is with the player and if the player can teleport
         if(collision.gameObject.CompareTag("Player") && canTeleport)
         {
+            //Adds the day amount and unlocks the next level if the player beats the level
             currentDay += 1;
             if (currentDay == maxDays)
             {
@@ -137,6 +159,7 @@ public class Portal : MonoBehaviour
             }
             else
             {
+                //Plays the win sound and starts the transition
                 win.Play();
                 transitionAnimator.Play("begin");
                 canTeleport = false;
@@ -153,7 +176,9 @@ public class Portal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            //The player can't teleport again until it exits the trigger
             canTeleport = true;
         }
     }
+    #endregion
 }
