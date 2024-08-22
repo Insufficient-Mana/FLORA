@@ -3,28 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-[RequireComponent (typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 
 public class Jump : MonoBehaviour
 {
-
+    [Header("CONFIG")]
     [SerializeField] BoxCollider2D groundDetector;
+    [Space]
+
     [SerializeField] float jumpStrength;
     [SerializeField] float maxJumpHeight;
+
+    [SerializeField] float jumpGravityScale = 3.5f;
+    [Space]
+
+    [SerializeField] float jumpHangVelocityThreshold = .1f;
+    [SerializeField] float jumpHangGravityMultiplier = .5f;
+    [Space]
+
     [SerializeField] float maxFallSpeed;
 
-    Rigidbody2D myRigidbody2D;
-
+    [Header("DEBUG")]
     public bool isOnGround;
     public bool isJumping;
     public bool isBouncing;
-    public bool canJump;
 
     public AudioSource jumpSound;
     public AudioSource landSound;
 
     float currentJumpHeight = 0;
+
+    Rigidbody2D myRigidbody2D;
 
     Animator myAnimator;
 
@@ -38,8 +48,9 @@ public class Jump : MonoBehaviour
         }
 
         myRigidbody2D = GetComponent<Rigidbody2D>();
+        myRigidbody2D.gravityScale = jumpGravityScale;
+
         myAnimator = GetComponent<Animator>();
-        canJump = true;
 
         playerControls = new PlayerControls();
     }
@@ -56,60 +67,72 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
-
-        if (canJump)
+        if (!isBouncing)
         {
-            if (!isBouncing)
+            //begin jump
+            if (isOnGround && !isJumping && playerControls.Gameplay.Jump.triggered)
             {
-                //begin jump
-                if (isOnGround && !isJumping &&  playerControls.Gameplay.Jump.triggered)
-                {
-                    StartJump();
-                }
+                StartJump();
+            }
 
-                //do jump
-                if (isJumping && playerControls.Gameplay.Jump.ReadValue<float>() == 1)
-                {
-                    myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength);
-                    currentJumpHeight += jumpStrength * Time.deltaTime;
-                }
-
-                //end jump if key released
-                if (isJumping && playerControls.Gameplay.Jump.ReadValue<float>() != 1)
-                {
-                    EndJump();
-                }
-
-                //end jump if max height is reached
-                if (isJumping && currentJumpHeight >= maxJumpHeight)
-                {
-                    EndJump();
-                }
-
-                //clamp fall speed
-                if (myRigidbody2D.velocity.y <= -maxFallSpeed)
-                {
-                    myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, -maxFallSpeed);
-                }
+            //end jump if key released
+            if (isJumping && playerControls.Gameplay.Jump.WasReleasedThisFrame())
+            {
+                EndJump();
+            }
+        }
+        else
+        {
+            currentJumpHeight += jumpStrength * Time.deltaTime;
+            if (isOnGround)
+            {
+                currentJumpHeight = 0;
+                //give extra jump height to bounce
+                myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength * 2.1f);
             }
             else
             {
-                currentJumpHeight += jumpStrength * Time.deltaTime;
-                if (isOnGround)
-                {
-                    currentJumpHeight = 0;
-                    //does anyone know what this 2.1f value is
-                    myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength * 2.1f);
-                }
-                else
-                {
-                    isBouncing = false;
-                }
+                isBouncing = false;
             }
-
-            myAnimator.SetBool("IsOnGround", isOnGround);
-            myAnimator.SetBool("IsJumping", isJumping);
         }
+
+        myAnimator.SetBool("IsOnGround", isOnGround);
+        myAnimator.SetBool("IsJumping", isJumping);
+
+    }
+
+    private void FixedUpdate()
+    {
+
+        //do jump
+        if (isJumping && playerControls.Gameplay.Jump.ReadValue<float>() == 1)
+        {
+            myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength);
+            currentJumpHeight += jumpStrength * Time.deltaTime;
+        }
+
+        //end jump if max height is reached
+        if (isJumping && currentJumpHeight >= maxJumpHeight)
+        {
+            EndJump();
+        }
+
+        //reduce gravity at peak of jump (to make it feel more floaty)
+        if (Mathf.Abs(myRigidbody2D.velocity.y) <= jumpHangVelocityThreshold)
+        {
+            myRigidbody2D.gravityScale = jumpGravityScale * jumpHangGravityMultiplier;
+        }
+        else
+        {
+            myRigidbody2D.gravityScale = jumpGravityScale;
+        }
+
+        //clamp fall speed
+        if (myRigidbody2D.velocity.y <= -maxFallSpeed)
+        {
+            myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, -maxFallSpeed);
+        }
+
     }
 
     private void StartJump()
@@ -123,7 +146,6 @@ public class Jump : MonoBehaviour
     {
         isJumping = false;
         isBouncing = false;
-        myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, 0);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
