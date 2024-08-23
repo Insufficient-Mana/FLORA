@@ -29,6 +29,7 @@ public class DefaultFlower : MonoBehaviour
             { 
                 placedTile = hit.collider.gameObject.GetComponent<Tile>();
                 placedTile.occupied = true;
+
             }
         }
     }

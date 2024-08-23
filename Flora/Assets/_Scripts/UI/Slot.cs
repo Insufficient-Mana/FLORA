@@ -107,7 +107,6 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IP
     {
         amount -= 1;
         PlatformCreator seedScript = seedType.GetComponent<PlatformCreator>();
-        seedScript.placedTile = placedTile;
         Instantiate(seedType,new Vector3(placedTile.transform.position.x, placedTile.transform.position.y,0),Quaternion.identity);
     }
     #endregion

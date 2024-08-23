@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8430288019890709651}
   - component: {fileID: 3139080410526412778}
   - component: {fileID: 3039660183070536114}
+  - component: {fileID: 5481042209665523335}
   m_Layer: 7
   m_Name: Basic Tall
   m_TagString: Flower
@@ -177,3 +178,19 @@ MonoBehaviour:
   sprList:
   - {fileID: 21300000, guid: c22cc3560cb1caf4eb435adc50a996bc, type: 3}
   - {fileID: 21300000, guid: c630b6314b232d049986800138d8d8ae, type: 3}
+--- !u!114 &5481042209665523335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5024781134340683784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d2d2331bd141742bb8dd319a2267f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ignore:
+    serializedVersion: 2
+    m_Bits: 128
+  placedTile: {fileID: 0}

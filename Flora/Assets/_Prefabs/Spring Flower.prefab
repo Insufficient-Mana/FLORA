@@ -229,6 +229,7 @@ GameObject:
   - component: {fileID: 4141103394000592788}
   - component: {fileID: 105215426491147243}
   - component: {fileID: 4088970609894284636}
+  - component: {fileID: 6610049878800151627}
   m_Layer: 7
   m_Name: Spring Flower
   m_TagString: Flower
@@ -390,9 +391,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9875fb4c8beaa4439e60abe5954d8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounced: 0
   myAnimatorList: []
   decayScript: {fileID: 0}
+  bounced: 0
 --- !u!114 &4141103394000592788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +481,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.25}
   m_EdgeRadius: 0
+--- !u!114 &6610049878800151627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6134534688763649208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36d2d2331bd141742bb8dd319a2267f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ignore:
+    serializedVersion: 2
+    m_Bits: 128
+  placedTile: {fileID: 0}
 --- !u!1 &7710836519984737538
 GameObject:
   m_ObjectHideFlags: 0

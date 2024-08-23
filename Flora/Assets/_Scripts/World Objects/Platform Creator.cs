@@ -9,7 +9,6 @@ public class PlatformCreator : MonoBehaviour
     public float spawnUnits;
     public float growTime;
     public bool stemGrown;
-    public GameObject placedTile;
 
     #region Start
     private void Start()
@@ -38,7 +37,8 @@ public class PlatformCreator : MonoBehaviour
             decayScript.associatedSeed = gameObject;
 
             //creates the platform at the amount of spawn units for this specific type of flower and sets the stem grown to true
-            Instantiate(flowerType,gameObject.transform.position + new Vector3(0,spawnUnits,0), Quaternion.identity);
+            GameObject flower = Instantiate(flowerType,gameObject.transform.position + new Vector3(0,spawnUnits,0), Quaternion.identity);
+            gameObject.transform.parent = flower.transform;
             stemGrown = true;
         }
     }
@@ -46,9 +46,6 @@ public class PlatformCreator : MonoBehaviour
     #region Deletion
     public void DeleteSeed()
     {
-        Tile tile = placedTile.GetComponent<Tile>();
-        tile.occupied = false;
-        tile.sprite.color = new Color(0, 255, 0, 0f);
         Destroy(gameObject);
     }
     #endregion
