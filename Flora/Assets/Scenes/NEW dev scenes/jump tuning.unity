@@ -253,9 +253,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 151541234958271922, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5179424296755696834, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6537468277138813808, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7368313687103185306, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
       propertyPath: maxFallSpeed
@@ -324,7 +332,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8399933948366170316, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 653302313}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5179424296755696834, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 901514636}
   m_SourcePrefab: {fileID: 100100000, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
 --- !u!1001 &344305295
 PrefabInstance:
@@ -590,6 +601,88 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &901514627 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5179424296755696834, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
+  m_PrefabInstance: {fileID: 202935431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &901514634 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7368313687103185306, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
+  m_PrefabInstance: {fileID: 202935431}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901514627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8710a7c336bb9469288e4a814d4cdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &901514636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901514627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 48f986ec01564bf4ca4046d2e3b73034, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2fcd274f-acc2-46ff-bf0d-7d51406831dd
+    m_ActionName: Gameplay/Move[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 901514634}
+        m_TargetAssemblyTypeName: Jump, Assembly-CSharp
+        m_MethodName: OnJumpPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 12718963-93b7-4029-979a-a9393e9df077
+    m_ActionName: Gameplay/Jump[/Keyboard/space,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4e16e1c7-9c03-4fed-ac9d-d9786bd58e5e
+    m_ActionName: Gameplay/Move Cursor[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dbebc41a-4766-4083-9965-088c4f00cfa6
+    m_ActionName: Gameplay/Move Cursor (Precise)
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 51ca3fc4-d7a4-452a-8d2e-ca6c4260e34b
+    m_ActionName: Gameplay/Plant Flower[/Mouse/leftButton,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2d9bfff6-0d62-408a-9902-289334fb5677
+    m_ActionName: Gameplay/Casting
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &1361890945
 PrefabInstance:
   m_ObjectHideFlags: 0

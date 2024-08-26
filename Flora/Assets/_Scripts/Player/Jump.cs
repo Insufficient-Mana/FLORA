@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -27,7 +28,6 @@ public class Jump : MonoBehaviour
     [Header("DEBUG")]
     public bool isOnGround;
     public bool isJumping;
-    public bool isBouncing;
 
     public AudioSource jumpSound;
     public AudioSource landSound;
@@ -65,39 +65,26 @@ public class Jump : MonoBehaviour
         playerControls.Disable();
     }
 
-    private void Update()
+    public void OnJumpPressed(InputAction.CallbackContext context)
     {
-        if (!isBouncing)
+        if (context.performed)
         {
             //begin jump
-            if (isOnGround && !isJumping && playerControls.Gameplay.Jump.triggered)
+            if (isOnGround && !isJumping)
             {
                 StartJump();
             }
 
+        }
+
+        if (context.canceled)
+        {
             //end jump if key released
-            if (isJumping && playerControls.Gameplay.Jump.WasReleasedThisFrame())
+            if (isJumping)
             {
                 EndJump();
             }
         }
-        else
-        {
-            currentJumpHeight += jumpStrength * Time.deltaTime;
-            if (isOnGround)
-            {
-                currentJumpHeight = 0;
-                //give extra jump height to bounce
-                myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength * 2.1f);
-            }
-            else
-            {
-                isBouncing = false;
-            }
-        }
-
-        myAnimator.SetBool("IsOnGround", isOnGround);
-        myAnimator.SetBool("IsJumping", isJumping);
 
     }
 
@@ -105,35 +92,22 @@ public class Jump : MonoBehaviour
     {
 
         //do jump
-        if (isJumping && playerControls.Gameplay.Jump.ReadValue<float>() == 1)
+        if (isJumping)
         {
-            myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength);
-            currentJumpHeight += jumpStrength * Time.deltaTime;
-        }
-
-        //end jump if max height is reached
-        if (isJumping && currentJumpHeight >= maxJumpHeight)
-        {
-            EndJump();
+            ProcessJump();
         }
 
         //reduce gravity at peak of jump (to make it feel more floaty)
-        if (Mathf.Abs(myRigidbody2D.velocity.y) <= jumpHangVelocityThreshold)
-        {
-            myRigidbody2D.gravityScale = jumpGravityScale * jumpHangGravityMultiplier;
-        }
-        else
-        {
-            myRigidbody2D.gravityScale = jumpGravityScale;
-        }
+        ProcessJumpHang();
 
         //clamp fall speed
-        if (myRigidbody2D.velocity.y <= -maxFallSpeed)
-        {
-            myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, -maxFallSpeed);
-        }
+        ClampFallSpeed();
+
+        myAnimator.SetBool("IsOnGround", isOnGround);
+        myAnimator.SetBool("IsJumping", isJumping);
 
     }
+
 
     private void StartJump()
     {
@@ -145,7 +119,38 @@ public class Jump : MonoBehaviour
     public void EndJump()
     {
         isJumping = false;
-        isBouncing = false;
+    }
+
+    
+    private void ProcessJump()
+    {
+        myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, jumpStrength);
+        currentJumpHeight += jumpStrength * Time.deltaTime;
+
+        //end jump if jump height is reached
+        if (currentJumpHeight >= maxJumpHeight)
+        {
+            EndJump();
+        }
+    }
+
+    private void ProcessJumpHang()
+    {
+        if (Mathf.Abs(myRigidbody2D.velocity.y) <= jumpHangVelocityThreshold)
+        {
+            myRigidbody2D.gravityScale = jumpGravityScale * jumpHangGravityMultiplier;
+        }
+        else
+        {
+            myRigidbody2D.gravityScale = jumpGravityScale;
+        }
+    }
+    private void ClampFallSpeed()
+    {
+        if (myRigidbody2D.velocity.y <= -maxFallSpeed)
+        {
+            myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, -maxFallSpeed);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -171,4 +176,7 @@ public class Jump : MonoBehaviour
             isOnGround = false;
         }
     }
+
+    
+
 }

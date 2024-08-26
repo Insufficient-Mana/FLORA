@@ -48,8 +48,10 @@ public class SpringFlower : MonoBehaviour
             //Bounces the player
             bounced = true;
             Jump playerJump = collision.gameObject.GetComponent<Jump>();
-            playerJump.isBouncing = true;
-            
+
+            //removed to get bounce code out of the jump code
+            //playerJump.isBouncing = true; 
+
             //Plays the animation for the spring flower and changes the sprites depending on if the flower is decayed
             if (isDecayed)
             {
