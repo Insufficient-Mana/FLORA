@@ -274,6 +274,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7368313687103185306, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
+      propertyPath: coyoteTimeSecs
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7368313687103185306, guid: 9f494ed51731c064eb0b1106e95bfc1c, type: 3}
       propertyPath: jumpGravityScale
       value: 5
       objectReference: {fileID: 0}

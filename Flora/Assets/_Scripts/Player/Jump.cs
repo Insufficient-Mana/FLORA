@@ -24,10 +24,12 @@ public class Jump : MonoBehaviour
     [Space]
 
     [SerializeField] float maxFallSpeed;
+    [SerializeField] float coyoteTimeSecs = .08f; //in secs
 
     [Header("DEBUG")]
     public bool isOnGround;
     public bool isJumping;
+    [SerializeField] bool coyoteTimeActive = false;
 
     public AudioSource jumpSound;
     public AudioSource landSound;
@@ -70,7 +72,7 @@ public class Jump : MonoBehaviour
         if (context.performed)
         {
             //begin jump
-            if (isOnGround && !isJumping)
+            if (!isJumping && (isOnGround || coyoteTimeActive))
             {
                 StartJump();
             }
@@ -174,9 +176,24 @@ public class Jump : MonoBehaviour
         if (collision.gameObject.layer == 7)
         {
             isOnGround = false;
+
+            //if falling, start coyote time
+            if (!isJumping)
+            {
+                StartCoyoteTime();
+            }
         }
     }
 
-    
+    void StartCoyoteTime()
+    {
+        coyoteTimeActive = true;
+        Invoke(nameof(EndCoyoteTime), coyoteTimeSecs);
+    }
+
+    void EndCoyoteTime()
+    {
+        coyoteTimeActive = false;
+    }
 
 }
